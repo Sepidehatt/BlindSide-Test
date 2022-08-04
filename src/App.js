@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import HomePage from './components/HomePage';
+import LogIn from './components/LogIn';
+import VideoDetails from './components/VideoDetails';
+import Navbar from './components/Navbar';
+import SideBarMenu from './components/SideBarMenu';
+
+
+const Container = styled.div`
+  display:flex;
+`;
+const Main = styled.div`
+flex: 7;
+`;
+const VideoWrapper = styled.div``;
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container >
+      <SideBarMenu />
+      <Main>
+        <Navbar />
+        <VideoWrapper>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/video/test' element={<VideoDetails />} />
+          </Routes>
+        </VideoWrapper>
+      </Main>
+    </Container>
   );
 }
 
