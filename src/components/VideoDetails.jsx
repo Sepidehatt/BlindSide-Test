@@ -4,22 +4,21 @@ import { useParams } from 'react-router-dom';
 import styled from "styled-components";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-
+import Comments from './Comments';
+import VideoCard from './VideoCard';
 
 const Container = styled.div`
 display: flex;
 flex-direction:column;
   gap: 24px;
   height:100vh;
-  background-color: #000;
-  color: white;
+
 `;
 
 const TopPart = styled.div`
 display: flex;
   `
 const BottomPart = styled.div`
- 
   `
 
 const VideoWrapper = styled.div`
@@ -31,8 +30,8 @@ const Content = styled.div`
   flex: 5;
   `
 
-const Comment = styled.div`
-  flex: 2;
+const Related = styled.div`
+  flex: 3;
 `
 const VideoTitle = styled.h2`
 color:white;
@@ -47,9 +46,18 @@ margin: 0;
 color:lightgray;
 `
 const InfoWrapper = styled.div`
+border: 1px solid white;
+ margin: 30px 0;
+ padding: 10px;
+width:60%;
 display: flex;
+  justify-content: space-between;
+& > div{
+  display: flex;
 align-items: center;
 gap:20px;
+
+}
 `
 
 const ProfileImage = styled.img`
@@ -57,7 +65,7 @@ const ProfileImage = styled.img`
  border-radius:50%;
 `
 const DetailWrapper = styled.div`
-width: 60%;
+width: 75%;
 display: flex;
 flex-direction:column;
 & > div{
@@ -73,6 +81,9 @@ display: flex;
 `
 const IconBtn = styled.div`
 `
+const SubscribeBtn = styled.button`
+
+`;
 
 const VideoDetails = () => {
   const { videoId } = useParams()
@@ -84,29 +95,37 @@ const VideoDetails = () => {
           <VideoWrapper>
             <ReactPlayer controls url="https://vimeo.com/321921012" />
           </VideoWrapper>
-            <DetailWrapper>
-              <div>
-                <VideoTitle>Video Title</VideoTitle>
-                <IconBtnDiv>
-                  <IconBtn>
-                    <FavoriteIcon />
-                  </IconBtn>
-                  <IconBtn>
-                    <ShareIcon />
-                  </IconBtn>
-                </IconBtnDiv>
-              </div>
-              <VideoText>Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText>
-            </DetailWrapper>
+          <DetailWrapper>
+            <div>
+              <VideoTitle>Video Title</VideoTitle>
+              <IconBtnDiv>
+                <IconBtn>
+                  <FavoriteIcon />
+                </IconBtn>
+                <IconBtn>
+                  <ShareIcon />
+                </IconBtn>
+              </IconBtnDiv>
+            </div>
+            <VideoText>Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText>
+            <InfoWrapper>
+            <div>
+              <ProfileImage src="https://robohash.org/quomaximeiste.jpg?size=70x70&set=set1" />
+              <Title>Username</Title>
+            </div>
+            <SubscribeBtn>Subscribe</SubscribeBtn>
+          </InfoWrapper>
+          </DetailWrapper>
+          <Comments/>
         </Content>
-        <Comment>
-        <InfoWrapper>
-        <ProfileImage src="https://robohash.org/quomaximeiste.jpg?size=70x70&set=set1" />
-        <Title>Username</Title>
-        </InfoWrapper>
-        </Comment>
+        <Related>
+        <VideoCard/>
+        <VideoCard/>
+        <VideoCard/>
+        </Related>
       </TopPart>
-      <BottomPart>bottom here
+      <BottomPart>
+
       </BottomPart>
     </Container>
   )
