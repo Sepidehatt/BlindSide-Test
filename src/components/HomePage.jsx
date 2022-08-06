@@ -5,29 +5,130 @@ import VideoCard from './VideoCard';
 
 
 const Container = styled.div`
-margin-top: 0;
-padding-top: 0;
-height: 100vh;
- background-color: #000;
-  color: white;
+display: flex;
+flex-direction:column;
+`
+const Titles = styled.div`
+display: flex;
+justify-content:space-between;
+align-items: center;
+
+h3{
+  color:white;
+  margin-left: 100px;
+}
+
+a{
+  text-decoration:none;
+  color:white;
+  font-size:20px;
+  margin-right: calc(40% - 280px); 
+    :hover{
+    color: gold;
+  }
+
+}
+`
+
+const VideoContainer = styled.div`
+  margin-top: 80px;
+  position: absolute;
+  height: 300px;
+  width: 600px;
+  top: 60px;
+  left: calc(40% - 250px); 
   display: flex;
-  justify-content:space-between;
-  align-items: center;
-  flex-wrap:wrap;
-  
 `;
+
+const AllVideoWrapper = styled.div`
+margin-top: 35%;
+`
+
+const VideoWrapper = styled.div`
+display: flex;
+flex-wrap:wrap;
+margin-top: 30px;
+margin-left: calc(40% - 370px); 
+
+`
+
+const PopularVideoWrapper = styled.div`
+`
+
+const Card = styled.div`
+display: flex;
+  height: 320px;
+  width: 200px;
+  background-color: #17141d;
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+
+  :not(:first-child) {
+    margin-left: -50px;
+}
+
+:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+}
+
+:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+}
+`
 
 
 const HomePage = () => {
 
   return (
     <Container>
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
+      <PopularVideoWrapper>
+        <Titles>
+          <h3>Most Popular Videos</h3>
+        </Titles>
+        <VideoContainer>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+          <Card className="card">
+            <VideoCard />
+          </Card>
+
+
+        </VideoContainer>
+      </PopularVideoWrapper>
+
+      <AllVideoWrapper>
+        <Titles>
+          <h3>All Videos</h3>
+          <NavLink to="/videos">See All</NavLink>
+        </Titles>
+        <VideoWrapper>
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+        </VideoWrapper>
+      </AllVideoWrapper>
     </Container>
   )
 }
