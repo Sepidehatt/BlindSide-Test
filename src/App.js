@@ -6,6 +6,7 @@ import LogIn from './components/LogIn';
 import VideoDetails from './components/VideoDetails';
 import Navbar from './components/Navbar';
 import SideBarMenu from './components/SideBarMenu';
+import VideoList from './components/VideoList';
 
 
 const Container = styled.div`
@@ -28,7 +29,8 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LogIn />} />
-            <Route path='/video/test' element={<VideoDetails />} />
+            <Route path='/videos' element={<VideoList />} />
+            <Route path='/videos/:videoId' element={<VideoDetails />} />
           </Routes>
         </VideoWrapper>
       </Main>
