@@ -10,16 +10,20 @@ width: 350px;
 
 
 const Image = styled.img`
+margin-left: 10px;
   width:40px;
  border-radius:50%;
 `
 const Video = styled.img`
-width:100%;
-height: 180px;
+height: 200px;
+  width: 200px;
+  border-radius: 10px;
+object-fit:cover;
+
 `
 const DescriptionWrapper = styled.div`
 display: flex;
-align-items: center;
+align-items: start;
 margin-top: 15px;
 gap : 13px ;
 `
@@ -31,14 +35,16 @@ flex-direction:column;
 `;
 
 
-const VideoTitle = styled.h4`
+const VideoTitle = styled.h5`
+line-height:20px;
+ width: 120px;
 color:white;
 margin: 0;
 `
-const VideoText = styled.p`
-margin: 0;
-color:lightgray;
-`
+// const VideoText = styled.p`
+// margin: 0;
+// color:lightgray;
+// `
 
 
 const VideoCard = () => {
@@ -50,7 +56,7 @@ const VideoCard = () => {
           <Image src={profileImagePH} />
           <Description>
             <VideoTitle>Video Title</VideoTitle>
-            <VideoText>Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText>
+            {/* <VideoText>Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText> */}
           </Description>
         </DescriptionWrapper>
       </Container>
