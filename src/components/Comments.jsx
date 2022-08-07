@@ -5,25 +5,40 @@ import InputEmoji from 'react-input-emoji';
 
 
 const Container = styled.div`
+border:1px solid rgb(32, 32, 32);
+margin:40px 0 100px 0;
 background-color:black;
+padding: 15px 0;
 width: 80%;
 `;
 const Hr = styled.hr`
-opacity:0.4;
-  margin: 25px 2px;
+opacity:0.2;
+  margin: 25px 0;
 `
 
 const CommenteBtn = styled.button`
+border-radius: 3px;
+  border: 1px solid #af7b0c;
+  color: #af7b0c;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color:transparent;
 
-`;
-const CommentForm = styled.form`
-   .InputEmoji{
-border-color:red;
-    width: 20%;
+  :hover{
+    background-color: #af7b0c;
+    color:white;
   }
 `;
 
+const CommentForm = styled.form`
+`;
+
 const FormWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content:center;
+margin: 20px 0;
 `;
 
 const HeaderWrapper = styled.div`
@@ -35,11 +50,13 @@ const HeaderWrapper = styled.div`
 
 const CommentCounter = styled.span`
   cursor:pointer;
+  color:darkgray;
 `;
 const Comment = styled.div`
 `;
 
 const CommentsWrapper = styled.div`
+margin: 30px;
 `;
 
 
@@ -58,34 +75,30 @@ const Comments = () => {
   return (
     <Container>
       <HeaderWrapper>
-        <CommentCounter onClick={showCommentBar} >0 Comments</CommentCounter>
-        <ModeCommentIcon style={{ cursor: "pointer" }} onClick={showCommentBar} htmlColor='CadetBlue' />
+        <CommentCounter onClick={showCommentBar} >2 Comments</CommentCounter>
+        <ModeCommentIcon style={{ cursor: "pointer" }} onClick={showCommentBar} />
       </HeaderWrapper>
-
-      {showComment
-        &&
+      {showComment &&
         <>
           <FormWrapper>
-            <CommentForm>
+            <CommentForm style={{width:"80%"}}>
               <InputEmoji
+              
                 name="text"
                 value="text"
                 placeholder='write a comment..'
-                className="InputEmoji"
               />
             </CommentForm>
+            <div>
             <CommenteBtn>Comment</CommenteBtn>
+            </div>
           </FormWrapper>
 
           <CommentsWrapper>
-            <Comment>Hello</Comment>
+            <Comment>Super useful video! 🤩💪</Comment>
             <Hr/>
-            <Comment>Hello</Comment>
+            <Comment>Interesting! </Comment>
             <Hr/> 
-            <Comment>Hello</Comment>
-            <Hr/> 
-            <Comment>Hello</Comment>
-            <Hr/>
           </CommentsWrapper>
         </>
       }
