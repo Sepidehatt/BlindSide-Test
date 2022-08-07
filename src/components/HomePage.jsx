@@ -3,7 +3,6 @@ import videos from './../videos.json';
 import styled from "styled-components"
 import VideoCard from './VideoCard';
 
-
 const Container = styled.div`
 display: flex;
 flex-direction:column;
@@ -24,7 +23,7 @@ a{
   font-size:20px;
   margin-right: calc(40% - 280px); 
     :hover{
-    color: gold;
+    color: #af7b0c;
   }
 
 }
@@ -48,7 +47,7 @@ const VideoWrapper = styled.div`
 display: flex;
 flex-wrap:wrap;
 margin-top: 30px;
-margin-left: calc(40% - 370px); 
+margin-left: calc(40% - 400px); 
 
 `
 
@@ -85,6 +84,9 @@ display: flex;
 
 const HomePage = () => {
 
+const popularVideo = videos.filter((video)=> video.views >= 3500)
+
+
   return (
     <Container>
       <PopularVideoWrapper>
@@ -92,25 +94,15 @@ const HomePage = () => {
           <h3>Most Popular Videos</h3>
         </Titles>
         <VideoContainer>
+        {popularVideo?.map((video,i) =>{
+          if(i<=5) {
+            return(
           <Card className="card">
-            <VideoCard />
+            <VideoCard type="popular" videoDet={video}/>
           </Card>
-          <Card className="card">
-            <VideoCard />
-          </Card>
-          <Card className="card">
-            <VideoCard />
-          </Card>
-          <Card className="card">
-            <VideoCard />
-          </Card>
-          <Card className="card">
-            <VideoCard />
-          </Card>
-          <Card className="card">
-            <VideoCard />
-          </Card>
-
+          )}
+        })}
+         
 
         </VideoContainer>
       </PopularVideoWrapper>
@@ -121,12 +113,13 @@ const HomePage = () => {
           <NavLink to="/videos">See All</NavLink>
         </Titles>
         <VideoWrapper>
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
-          <VideoCard />
+        {
+          videos.map(video=>{
+            return(
+          <VideoCard videoDet={video} />
+            )
+          })
+        }
         </VideoWrapper>
       </AllVideoWrapper>
     </Container>
