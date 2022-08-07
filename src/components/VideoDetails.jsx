@@ -140,9 +140,9 @@ const [isLiked, setIsLiked] = useState(true)
                   <SubscribeBtn>Subscribe</SubscribeBtn>
                 </InfoWrapper>
               </DetailWrapper>
+          <Comments comments={videoDetail.comments}/>
             </>
           }
-          <Comments />
         </Content>
         <Related>
           {relatedVideos &&

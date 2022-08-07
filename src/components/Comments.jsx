@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from 'react';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import InputEmoji from 'react-input-emoji';
+import videos from './../videos.json';
 
 
 const Container = styled.div`
@@ -61,7 +62,7 @@ margin: 30px;
 
 
 
-const Comments = () => {
+const Comments = ({ comments }) => {
   const [showComment, setShowComment] = useState(false)
 
 
@@ -75,30 +76,34 @@ const Comments = () => {
   return (
     <Container>
       <HeaderWrapper onClick={showCommentBar}>
-        <CommentCounter >2 Comments</CommentCounter>
+        <CommentCounter >{comments.length <= 1 ? `${comments.length} Comment` : `${comments.length} Comments`}</CommentCounter>
         <ModeCommentIcon />
       </HeaderWrapper>
       {showComment &&
         <>
           <FormWrapper>
-            <CommentForm style={{width:"80%"}}>
+            <CommentForm style={{ width: "80%" }}>
               <InputEmoji
-              
+
                 name="text"
                 value="text"
                 placeholder='write a comment..'
               />
             </CommentForm>
             <div>
-            <CommenteBtn>Comment</CommenteBtn>
+              <CommenteBtn>Comment</CommenteBtn>
             </div>
           </FormWrapper>
 
           <CommentsWrapper>
-            <Comment>Super useful video! 🤩💪</Comment>
-            <Hr/>
-            <Comment>Interesting! </Comment>
-            <Hr/> 
+            {comments?.map(comment => {
+              return (
+                <>
+                  <Comment>{comment.creator} : {comment.comment}</Comment>
+                  <Hr />
+                </>
+              )
+            })}
           </CommentsWrapper>
         </>
       }
