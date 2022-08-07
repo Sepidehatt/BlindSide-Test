@@ -27,7 +27,7 @@ npm start
       
 In order to see details of a video, click on video that you want to watch.
   
-  * Video Detail page:
-    - User can watch video and see details, like creator name and its image, description etc.
-    - User can see related videos (by tag), at right bar.
-    - There is a field for comment in the bottom. When user click on that, it displays the comments and the input box.
+   * Video Detail page:
+       - User can watch video and see details, like creator name and its image, description etc.
+       - User can see related videos (by tag), at right bar.
+       - There is a field for comment in the bottom. When user click on that, it displays the comments and the input box.
