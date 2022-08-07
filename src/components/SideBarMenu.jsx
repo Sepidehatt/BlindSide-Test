@@ -4,7 +4,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import AddToQueueIcon from '@mui/icons-material/AddToQueue';
 import Home from '@mui/icons-material/Home';
 import { NavLink } from 'react-router-dom';
-
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 
 
 const Container = styled.div`
@@ -23,7 +23,13 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   gap:30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  padding:10px;
+
+  :hover{
+    
+    background-color: #1f1e1e;
+  }
 `
 
 const Image = styled.img`
@@ -38,18 +44,25 @@ opacity:0.4;
 
 
 const SideBarMenu = () => {
-  return (
+
+ return (
     <Container>
       <ItemWrapper>
         <NavLink to="/" style={{ textDecoration: "none" }}>
           <Image src={BSLogo} />
         </NavLink>
-          <NavLink to="/" style={{ textDecoration: "none", color:"inherit"}}>
-        <Item>
+        <NavLink to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
             <Home />
             Home
-        </Item>
-          </NavLink>
+          </Item>
+        </NavLink>
+        <NavLink to="/videos" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <VideoLibraryIcon />
+            Videos
+          </Item>
+        </NavLink>
         <Item>
           <ThumbUpIcon />
           Favorites
@@ -62,16 +75,10 @@ const SideBarMenu = () => {
         <Item>
           SUBSCRIPTION LIST
         </Item>
-        <p>Ivo Silva</p>
-        <p>Ivo Silva</p>
-        <p>Ivo Silva</p>
         <Hr />
         <Item>
           FAVORITE VIDEOS
         </Item>
-        <p>Video Title 1</p>
-        <p>Video Title 1</p>
-        <p>Video Title 1</p>
       </ItemWrapper>
     </Container>
   )
