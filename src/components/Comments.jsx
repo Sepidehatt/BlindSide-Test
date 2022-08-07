@@ -45,11 +45,11 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 20px;
+  cursor:pointer;
 `;
 
 
 const CommentCounter = styled.span`
-  cursor:pointer;
   color:darkgray;
 `;
 const Comment = styled.div`
@@ -74,9 +74,9 @@ const Comments = () => {
 
   return (
     <Container>
-      <HeaderWrapper>
-        <CommentCounter onClick={showCommentBar} >2 Comments</CommentCounter>
-        <ModeCommentIcon style={{ cursor: "pointer" }} onClick={showCommentBar} />
+      <HeaderWrapper onClick={showCommentBar}>
+        <CommentCounter >2 Comments</CommentCounter>
+        <ModeCommentIcon />
       </HeaderWrapper>
       {showComment &&
         <>
