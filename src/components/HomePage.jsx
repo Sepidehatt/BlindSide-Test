@@ -94,15 +94,16 @@ const popularVideo = videos.filter((video)=> video.views >= 3500)
           <h3>Most Popular Videos</h3>
         </Titles>
         <VideoContainer>
-        {popularVideo?.map((video,i) =>{
-          if(i<=5) {
-            return(
-          <Card className="card">
-            <VideoCard type="popular" videoDet={video}/>
-          </Card>
-          )}
-        })}
-         
+          {popularVideo?.map((video, i) => {
+            if (i <= 5) {
+              return (
+                <Card className="card">
+                  <VideoCard type="popular" videoDet={video} />
+                </Card>
+              )
+            }
+          })}
+
 
         </VideoContainer>
       </PopularVideoWrapper>
@@ -113,13 +114,13 @@ const popularVideo = videos.filter((video)=> video.views >= 3500)
           <NavLink to="/videos">See All</NavLink>
         </Titles>
         <VideoWrapper>
-        {
-          videos.map((video,i) => {
-            if(i< 9) return(
-          <VideoCard videoDet={video} />
-            )
-          })
-        }
+          {
+            videos.map((video, i) => {
+              if (i < 9) return (
+                <VideoCard videoDet={video} />
+              )
+            })
+          }
         </VideoWrapper>
       </AllVideoWrapper>
     </Container>
@@ -128,18 +129,3 @@ const popularVideo = videos.filter((video)=> video.views >= 3500)
 
 export default HomePage
 
-/*    {videos.map(video =>{
-  return(
-    <>
-    <NavLink to={`/${video.id}`}>
-    <img src={video.imageUrl} alt={video.title}/>
-    <h3>{video.title}</h3>
-    <div>
-    <img src={video.profileImage} alt={video.creator} />
-    <span>{video.creator}</span>
-    </div>
-    </NavLink>
-    </>
-  )
-})}
-*/

@@ -27,10 +27,10 @@ function App() {
     <Container >
       <SideBarMenu />
       <Main>
-        <Navbar/>
+        <Navbar />
         <VideoWrapper>
           <Routes>
-            <Route path='/' element={<IsPrivate><HomePage/></IsPrivate>} />
+            <Route path='/' element={<IsPrivate><HomePage /></IsPrivate>} />
             <Route path='/signin' element={<IsAnon><LogIn /></IsAnon>} />
             <Route path='/videos' element={<IsPrivate><VideoList /></IsPrivate>} />
             <Route path='/videos/:videoId' element={<IsPrivate><VideoDetails /></IsPrivate>} />

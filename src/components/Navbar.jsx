@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import profileImagePH from './../assets/profileImagePH.png'
-import { NavLink , useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -54,7 +54,6 @@ margin-right: 15px;
   }
 `;
 
-
 const Image = styled.img`
   width:35px;
   border-radius:50%;
@@ -74,7 +73,7 @@ const Navbar = () => {
 
   const isAuthenticated = localStorage.getItem("isAuthenticated")
 
-  const logOutUser=()=>{
+  const logOutUser = () => {
     localStorage.removeItem("isAuthenticated");
     navigate("/signin")
   }
@@ -85,15 +84,15 @@ const Navbar = () => {
       <ItemWrapper>
         <Input type="search" placeholder="Search.." />
         <RightSide>
-        {isAuthenticated !== "true"
-        ? <NavLink to="/signin" >Sign in</NavLink>
-        : <>
-        <LogOutBtn onClick={logOutUser}>Log out</LogOutBtn>
-        <Image src={profileImagePH} />
-        </>
-        }
-          
-          
+          {isAuthenticated !== "true"
+            ? <NavLink to="/signin" >Sign in</NavLink>
+            : <>
+              <LogOutBtn onClick={logOutUser}>Log out</LogOutBtn>
+              <Image src={profileImagePH} />
+            </>
+          }
+
+
         </RightSide>
 
       </ItemWrapper>

@@ -45,7 +45,7 @@ opacity:0.4;
 
 const SideBarMenu = () => {
 
- return (
+  return (
     <Container>
       <ItemWrapper>
         <NavLink to="/" style={{ textDecoration: "none" }}>

@@ -12,7 +12,6 @@ display: flex;
   
 `;
 
-
 const SubTitle = styled.h2`
   font-size: 20px;
   color: #af7b0c;
@@ -82,39 +81,39 @@ const LogIn = () => {
         value: "Email/password field is empty",
       }));
 
-    } else if(email && password ) {
+    } else if (email && password) {
       //Signin Success
       localStorage.setItem("isAuthenticated", "true");
       navigate('/')
-    } 
+    }
   };
 
 
 
   return (
     <Container>
-        <Title>Sign In</Title>
-        <SubTitle>Welcome Here</SubTitle>
-        {errorMessage && <p>{errorMessage}</p>}
-        <Form onSubmit={handleLoginSubmit}>
-              <Input
-                placeholder="Email ..."
-                type="email"
-                name="email"
-                value={email}
-                required={true}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Input
-                placeholder="Password ..."
-                type="password"
-                name="password"
-                value={password}
-                required={true}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-          <LoginBtn type="submit">Sign in</LoginBtn>
-        </Form>
+      <Title>Sign In</Title>
+      <SubTitle>Welcome Here</SubTitle>
+      {errorMessage && <p>{errorMessage}</p>}
+      <Form onSubmit={handleLoginSubmit}>
+        <Input
+          placeholder="Email ..."
+          type="email"
+          name="email"
+          value={email}
+          required={true}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          placeholder="Password ..."
+          type="password"
+          name="password"
+          value={password}
+          required={true}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <LoginBtn type="submit">Sign in</LoginBtn>
+      </Form>
     </Container>
   )
 }

@@ -6,7 +6,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import Comments from './Comments';
 import VideoCard from './VideoCard';
-import { useState} from 'react';
+import { useState } from 'react';
 
 const Container = styled.div`
 display: flex;
@@ -97,14 +97,14 @@ const SubscribeBtn = styled.button`
 `;
 
 const VideoDetails = () => {
-const [like, setLike] = useState('white')
-const [isLiked, setIsLiked] = useState(true)
+  const [like, setLike] = useState('white')
+  const [isLiked, setIsLiked] = useState(true)
 
   const { videoId } = useParams()
   const videoDetail = videos.find(video => videoId === video.id)
   const relatedVideos = videos.filter(video => video.tag === videoDetail.tag && video.id !== videoDetail.id)
 
-  const likeHandler = ()=>{
+  const likeHandler = () => {
     setLike(isLiked ? "crimson" : "white");
     setIsLiked(!isLiked)
   }
@@ -140,7 +140,7 @@ const [isLiked, setIsLiked] = useState(true)
                   <SubscribeBtn>Subscribe</SubscribeBtn>
                 </InfoWrapper>
               </DetailWrapper>
-          <Comments comments={videoDetail.comments}/>
+              <Comments comments={videoDetail.comments} />
             </>
           }
         </Content>

@@ -1,31 +1,9 @@
-import { NavLink } from 'react-router-dom';
 import videos from './../videos.json';
 import styled from "styled-components"
 import VideoCard from './VideoCard';
-import {useState} from 'react'
+import { useState } from 'react'
 
 
-const Titles = styled.div`
-display: flex;
-justify-content:space-between;
-align-items: center;
-
-h3{
-  color:white;
-  margin-left: 100px;
-}
-
-a{
-  text-decoration:none;
-  color:white;
-  font-size:20px;
-  margin-right: calc(40% - 280px); 
-    :hover{
-    color: gold;
-  }
-
-}
-`
 
 const VideoWrapper = styled.div`
 display: flex;
@@ -70,26 +48,26 @@ const VideoList = () => {
   const [filterByTag, setFilterByTag] = useState(videos)
 
   const tags = videos.map(video => video.tag)
-  const tagsName=[...tags].filter((tag , i) => tag !== tags[i-1]).sort((a,b)=> a.localeCompare(b))
+  const tagsName = [...tags].filter((tag, i) => tag !== tags[i - 1]).sort((a, b) => a.localeCompare(b))
 
-  const filterVideos = (tag) =>{
+  const filterVideos = (tag) => {
     if (tag) return setFilterByTag(preValue => {
-    return videos.filter ( video => video.tag === tag)
-   })
-   else return setFilterByTag(videos)
+      return videos.filter(video => video.tag === tag)
+    })
+    else return setFilterByTag(videos)
   }
 
 
   return (
     <Container>
-    <BtnWrapper>
-    <FilterBtn onClick={()=> filterVideos()} >All</FilterBtn>
-   {tagsName &&
-    tagsName.map(tag => <FilterBtn onClick={()=> filterVideos(tag)}>{tag}</FilterBtn> )
-   }
-    </BtnWrapper>
+      <BtnWrapper>
+        <FilterBtn onClick={() => filterVideos()} >All</FilterBtn>
+        {tagsName &&
+          tagsName.map(tag => <FilterBtn onClick={() => filterVideos(tag)}>{tag}</FilterBtn>)
+        }
+      </BtnWrapper>
       <VideoWrapper>
-      {filterByTag?.map(video => <VideoCard videoDet={video} />)}
+        {filterByTag?.map(video => <VideoCard videoDet={video} />)}
       </VideoWrapper>
     </Container>
   )

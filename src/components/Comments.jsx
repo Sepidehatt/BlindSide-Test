@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useState } from 'react';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import InputEmoji from 'react-input-emoji';
-import videos from './../videos.json';
 
 
 const Container = styled.div`
@@ -64,8 +63,6 @@ margin: 30px;
 
 const Comments = ({ comments }) => {
   const [showComment, setShowComment] = useState(false)
-
-
 
 
   const showCommentBar = () => {
