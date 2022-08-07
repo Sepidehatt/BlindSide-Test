@@ -7,6 +7,9 @@ import VideoDetails from './components/VideoDetails';
 import Navbar from './components/Navbar';
 import SideBarMenu from './components/SideBarMenu';
 import VideoList from './components/VideoList';
+import IsPrivate from './components/IsPrivate';
+import IsAnon from './components/IsAnon';
+
 
 
 const Container = styled.div`
@@ -24,13 +27,13 @@ function App() {
     <Container >
       <SideBarMenu />
       <Main>
-        <Navbar />
+        <Navbar/>
         <VideoWrapper>
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='/login' element={<LogIn />} />
-            <Route path='/videos' element={<VideoList />} />
-            <Route path='/videos/:videoId' element={<VideoDetails />} />
+            <Route path='/' element={<IsPrivate><HomePage/></IsPrivate>} />
+            <Route path='/signin' element={<IsAnon><LogIn /></IsAnon>} />
+            <Route path='/videos' element={<IsPrivate><VideoList /></IsPrivate>} />
+            <Route path='/videos/:videoId' element={<IsPrivate><VideoDetails /></IsPrivate>} />
           </Routes>
         </VideoWrapper>
       </Main>
