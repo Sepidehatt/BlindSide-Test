@@ -1,29 +1,33 @@
-# Video UI browser - Created by React
+# Video Browser UI
 
-- you can run the application with 'npm start' syntax.
+## Used Libraries & Packages 
+- React
+- Styled Components
+- Material UI
 
+## How to run
+```
+npm start
+```
 
-## Decription : 
+## Decription 
 
-- I used styled components for designing this webapp.
+- A JSON file has created with necessary data like video tags, links, etc. 
 
-- I created a json file with necessary data. 
+- Protected by login. that said, user needs to enter its credential (email & password) to get access to contents.
 
-- whole webapp protected by login, user need to enter an email & password to have access to this webapp data.
-
-- user can see a sidebar menu, with home and videos link,
+- User sees a sidebar menu, with Home and Videos buttons.
   
-    * in home page :
-        - first part is most popular videos. these videos have highest number of views ( you can find this data in videos.json file)
-        - second part , you can see list of 9 videos. if user wants to see all videos in the website, click on 'See All'. user can find it at the top of videos.
+    * Home page:
+        - Has a "Most Popular Videos" containing the most popular videos. These videos have highest number of views (you can find this data in videos.json file).
+        - In the second section in Home page, user sees nine first videos of the list. If they wants to see all videos, clicks on "See All". 
     
-    * in Videos :
-      - all videos are here. there are some tag at the top of page. user can filter videos by tags when clicking on them. these tags will add automatically, when user add a new tag to a video ( you can find tag property in json file. user can also change them to see how tags add automatically)
+    * Videos:
+      - All videos are listed here. There are predefined tags at top of the page. User can filter videos by clicking on tags. These tags will be added automatically, if user add a tag to a video (you can find tag property in JSON file. User can also change them to see how tags are added automatically).
       
-      
- to see every videos detail, click on video that you want to watch.
+In order to see details of a video, click on video that you want to watch.
   
-  * Video Detail page :
-    - user can watch video, and see details of video, like creator name and image,video description etc.
-    - user can see related videos (by tag) , at right bar.
-    -there is a field for comment in the bottom. when user click on that, it displays the comment input and also previous comments.
+  * Video Detail page:
+    - User can watch video and see details, like creator name and its image, description etc.
+    - User can see related videos (by tag), at right bar.
+    - There is a field for comment in the bottom. When user click on that, it displays the comments and the input box.
