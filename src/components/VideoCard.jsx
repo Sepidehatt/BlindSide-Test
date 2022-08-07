@@ -1,11 +1,11 @@
 import styled from "styled-components"
-import profileImagePH from './../assets/profileImagePH.png'
 import { NavLink } from 'react-router-dom';
 
 
 const Container = styled.div`
 width: 350px;
   margin-bottom: 30px;
+  display: ${({type})=> type === "related" && "flex"};
 `;
 
 
@@ -15,9 +15,9 @@ margin-left: 10px;
  border-radius:50%;
 `
 const Video = styled.img`
-height: 200px;
-  width: 200px;
-  border-radius: 10px;
+height: ${({type}) => type === "popular" ? "200px" : "150px"};
+  width: ${({type}) => type === "popular" ? "200px" : "280px"};
+  border-radius: ${({type}) => type === "popular" ? "10px" : "4px"};
 object-fit:cover;
 
 `
@@ -37,30 +37,37 @@ flex-direction:column;
 
 const VideoTitle = styled.h5`
 line-height:20px;
- width: 120px;
+ width: ${({type}) => type === "popular" ? "120px" : "210px"};
 color:white;
 margin: 0;
 `
-// const VideoText = styled.p`
-// margin: 0;
-// color:lightgray;
-// `
+const VideoText = styled.p`
+display: ${({type})=> type === "related" ? "flex" : "none"};
+margin: 0;
+color:darkgray;
+`
 
 
-const VideoCard = () => {
+const VideoCard = ({videoDet , type}) => {
   return (
-    <NavLink to="/video/test" style={{textDecoration : "none"}}>
-      <Container>
-        <Video src="https://i.vimeocdn.com/video/692518526-d30920bc6f18a385ef1b886552d00f6158e66a32ba904f1e4156a4f67cd3c0d4-d_590x332" />
+    <>
+    {
+      videoDet &&
+
+    <NavLink to={`/videos/${videoDet.id}`} style={{textDecoration : "none"}}>
+      <Container type={type}>
+        <Video src={videoDet.imageUrl} type={type} />
         <DescriptionWrapper>
-          <Image src={profileImagePH} />
+          <Image src={videoDet.profileImage} />
           <Description>
-            <VideoTitle>Video Title</VideoTitle>
-            {/* <VideoText>Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText> */}
+            <VideoTitle type={type} >{videoDet.title}</VideoTitle>
+            <VideoText  type={type} >Lorem ipsum, dolor sit amet consectetur adipisicing.</VideoText>
           </Description>
         </DescriptionWrapper>
       </Container>
     </NavLink>
+    }
+    </>
   )
 }
 
