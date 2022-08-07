@@ -114,8 +114,8 @@ const popularVideo = videos.filter((video)=> video.views >= 3500)
         </Titles>
         <VideoWrapper>
         {
-          videos.map(video=>{
-            return(
+          videos.map((video,i) => {
+            if(i< 9) return(
           <VideoCard videoDet={video} />
             )
           })
