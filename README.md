@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Video UI browser - Created by React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- you can run the application with 'npm start' syntax.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Decription : 
 
-### `npm start`
+- I used styled components for designing this webapp.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- I created a json file with necessary data. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- whole webapp protected by login, user need to enter an email & password to have access to this webapp data.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- user can see a sidebar menu, with home and videos link,
+  
+    * in home page :
+        - first part is most popular videos. these videos have highest number of views ( you can find this data in videos.json file)
+        - second part , you can see list of 9 videos. if user wants to see all videos in the website, click on 'See All'. user can find it at the top of videos.
+    
+    * in Videos :
+      - all videos are here. there are some tag at the top of page. user can filter videos by tags when clicking on them. these tags will add automatically, when user add a new tag to a video ( you can find tag property in json file. user can also change them to see how tags add automatically)
+      
+      
+ to see every videos detail, click on video that you want to watch.
+  
+  * Video Detail page :
+    - user can watch video, and see details of video, like creator name and image,video description etc.
+    - user can see related videos (by tag) , at right bar.
+    -there is a field for comment in the bottom. when user click on that, it displays the comment input and also previous comments.
